@@ -1,25 +1,12 @@
-//Seleccionamos eventos
-const h1 = document.querySelector('h1');
-const input1  =document.querySelector('#calculo1');
-const input2 = document.querySelector('#calculo2');
-const botonCalcular = document.querySelector('#btnCalcular');
-const pResult = document.querySelector('#result');
-//Escuchamos eventos html
+/*Traemos el selector del elemento que desplegara nuestro componente en html*/
+const menuEmail= document.querySelector('.navbar-email');
+/*traemos el elemnto al cual le quitaremos clases o agregaremos*/
+const desktopMenu=document.querySelector('.desktop-menu');
 
+menuEmail.addEventListener('click',toggleDesktopMenu);
 
-//funcinon calculadora
-function btnOnClick(){
-    let a;
-    let b;
-    a=Number(input1.value);
-    b=Number(input2.value);
-    // console.log(a,b);
-    let suma= a+b;
-    suma=String(suma);
-    console.log(typeof suma+" sm")
-    pResult.innerHTML=suma; 
+function toggleDesktopMenu(){
+    desktopMenu.classList.toggle('inactive');
 }
 
-
-
-
+console.log('ome gonorrea');

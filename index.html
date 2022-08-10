@@ -1,19 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dom-3</title>
-</head>
-<body>
-    <h1>Escuchando eventos desde JS</h1>
+    <title>Software proyect: online shop</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
 
-    <input type="number" id="calculo1" placeholder="ingrese valor">
-    <input type="number" id ="calculo2" placeholder="ingrese valor">
-    <button id="btnCalcular" onclick="btnOnClick()">Calcular</button>
-    <p>El resultado es: </p>
-    <p id="result"></p>
+</head>
+
+<body>
+    <!-- Estructuramos el navbar -->
+    <nav class="navbar">
+        <!--Esconderemos esta imagen en desktop-->
+        <img src="./icons/icon_menu.svg" class="menu">
+
+        <!--el navbar estará dividido den dos secciones-->
+        <div class="navbar-left">
+            <img src="./logos/logo-med.png" alt="logo" class="logo">
+            <ul>
+                <li><a href="/">All</a></li>
+                <li><a href="/">Clothes</a></li>
+                <li><a href="/">Electronics</a></li>
+                <li><a href="/">Furniture</a></li>
+                <li><a href="/">Toys</a></li>
+                <li><a href="/">Other</a></li>
+            </ul>
+
+        </div>
+
+        <div class="navbar-rigth">
+            <ul>
+                <!-- identificamos al elemento de nuestro html que desplegará nuestro componente(clase7) -->
+                <li class="navbar-email">diegor@homtail.com</li>
+                <li class="navbar-shoping-cart">
+                    <img src="icons/icon_shopping_cart.svg" alt="shoping cart">
+                    <div>2</div>
+                </li>
+            </ul>
+
+        </div>
+        <!-- agregamos nuestro cmoponente aparte -->
+        <div class="desktop-menu inactive">
+            <ul>
+                <li>
+                    <a href="/" class="desktop-menu__link">My Orders</a>
+                </li>
+                <li>
+                    <a href="/" class="desktop-menu__link">My account</a>
+
+                </li>
+                <li>
+                    <a href="/" class="desktop-menu__link desktop-menu__link--link-signout">Sign out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <script src="./main.js"></script>
+
 </body>
+
 </html>
