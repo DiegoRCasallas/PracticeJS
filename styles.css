@@ -1,0 +1,203 @@
+/* nuestras variables */
+:root {
+
+    --white: #ffffff;
+    --black: #000000;
+    --very-light-ocre: #eed7af;
+    --text-input-field: #F7f7f7;
+    --hospital-blue: #619eae;
+
+    /*Variables medidas texto*/
+    --sm: 14px;
+    --md: 16px;
+    --lg: 18px;
+
+    --font: 'Quicksand';
+
+}
+
+body {
+    margin: 0;
+    font-family: var(--font);
+}
+/*clase inactiva que me permitira mediante js agregarsela 
+o quitarse al componente div*/
+.inactive{
+    /* desparecemos el componente */
+    display: none;
+
+}
+
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 0 24px;
+    border-bottom: 1px solid var(--very-light-ocre);
+
+}
+
+.menu {
+    display: none;
+    /*desaparece img menu en desktop*/
+}
+
+.logo {
+    width: 100px;
+
+}
+
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+
+
+}
+
+.navbar-rigth {
+    display: flex;
+    align-items: center;
+    margin: 0;
+
+
+}
+
+
+.navbar-left ul,
+.navbar-rigth ul {
+    padding: 0;
+    margin: 0px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    height: 60px;
+
+}
+
+.navbar-left ul li a,
+.navbar-rigth ul li a {
+    color: var(--very-light-ocre);
+    padding: 8px;
+    margin-left: 8px;
+    text-decoration: none;
+    border-radius: 12px;
+    border: 1px solid var(--white);
+
+}
+
+.navbar-left ul li a:hover,
+.navbar-rigth ul li a:hover {
+
+    padding: 8px;
+    margin-left: 8px;
+
+    border: 1px solid var(--hospital-blue);
+    border-radius: 12px;
+    color: var(--hospital-blue)
+}
+
+.navbar-left ul {
+    margin-left: 12px;
+}
+
+/*Estilizamos especificamente nav derecho*/
+.navbar-email {
+    cursor: pointer;
+    color: var(--very-light-ocre);
+    font-size: var(--sm);
+}
+
+.navbar-shoping-cart div {
+    width: 12px;
+    height: 12px;
+    background-color: var(--hospital-blue);
+    border-radius: 50%;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    /*ajustamos la bolita enel carrito de compras*/
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.navbar-shoping-cart {
+    position: relative;
+}
+
+/*estilos DESKTOP MENU*/
+.desktop-menu{
+    /*posicionamos el componente*/
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    width: 100px;
+    height: auto;
+    border: 1px solid var(--very-light-ocre);
+    border-radius: 6px;
+    padding: 20px 20px 0 20px;
+    
+    
+    
+}
+
+.desktop-menu ul{
+    list-style:none;
+    margin: 0;
+    padding: 0;
+    
+}
+
+
+.desktop-menu ul li{
+    text-align: end;
+}
+
+.desktop-menu__link{
+    color:var(--black);
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+    width: 100%;
+    font-weight: bold;
+    
+}
+
+.desktop-menu__link--link-signout{
+   padding-top: 20px;
+    border-top:1px solid var(--very-light-ocre);
+    color: var(--hospital-blue);
+    
+    font-size: var(--sm);
+    margin-bottom: 20px;
+    font-weight:normal;
+}
+
+    
+
+
+
+
+
+/*MEDIAQUERIES*/
+@media(max-width:640px) {
+    .menu {
+        /*aparecerala imagen del menu*/
+        display: block;
+    }
+
+    /*Desaparecemos el navbar-lef*/
+    .navbar-left ul {
+        display: none;
+    }
+
+    /*Desaparecemos el email*/
+    .navbar-email {
+        display: none;
+    }
+}
