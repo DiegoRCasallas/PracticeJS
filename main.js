@@ -60,16 +60,7 @@ function toggleShopingCardMenu() {
     } 
     menuShopingCard.classList.toggle("inactive");
 }
-// function showUltimateMenu(){
-//     const isCloseMobileMenu=mobileMenu.classList.contains('inactive');
-//     const isCloseShopingCardMenu=menuShopingCard.classList.contains('inactive');
-//     console.log("mobile close="+isCloseMobileMenu);
-//     console.log("shoping close="+isCloseShopingCardMenu);
-//     if(isCloseMobileMenu){
 
-
-//     }
-// }  
 console.log('ome gonorrea');
 
 
