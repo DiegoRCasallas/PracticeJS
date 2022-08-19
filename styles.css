@@ -16,13 +16,18 @@
 
 }
 
+*{
+    box-sizing: border-box;
+}
 body {
     margin: 0;
     font-family: var(--font);
+
 }
+
 /*clase inactiva que me permitira mediante js agregarsela 
 o quitarse al componente div*/
-.inactive{
+.inactive {
     /* desparecemos el componente */
     display: none;
 
@@ -131,7 +136,7 @@ nav {
 }
 
 /*estilos DESKTOP MENU*/
-.desktop-menu{
+.desktop-menu {
     /*posicionamos el componente*/
     position: absolute;
     top: 60px;
@@ -141,47 +146,216 @@ nav {
     border: 1px solid var(--very-light-ocre);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
-    
-    
-    
+
+
+
 }
 
-.desktop-menu ul{
-    list-style:none;
+.desktop-menu ul {
+    list-style: none;
     margin: 0;
     padding: 0;
-    
+
 }
 
 
-.desktop-menu ul li{
+.desktop-menu ul li {
     text-align: end;
 }
 
-.desktop-menu__link{
-    color:var(--black);
+.desktop-menu__link {
+    color: var(--black);
     text-decoration: none;
     margin-bottom: 20px;
     display: inline-block;
     width: 100%;
     font-weight: bold;
-    
+
 }
 
-.desktop-menu__link--link-signout{
-   padding-top: 20px;
-    border-top:1px solid var(--very-light-ocre);
+.desktop-menu__link--link-signout {
+    padding-top: 20px;
+    border-top: 1px solid var(--very-light-ocre);
     color: var(--hospital-blue);
-    
+
     font-size: var(--sm);
     margin-bottom: 20px;
-    font-weight:normal;
+    font-weight: normal;
 }
 
+/*MOBILE MENU*/
+
+.mobile-menu {
+    font-weight: bold;
+    /*INTEGRACION CON JS */
+    position: absolute;
+    top: 60px;
+
+}
+
+.mobile-menu a {
+
+    text-decoration: none;
+    list-style: none;
+    color: var(--black);
+}
+
+.mobile-menu ul {
+    padding: 0;
+    margin: 24px 0 0 24px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.mobile-menu ul li {
+    list-style: none;
+    margin-top: 24px;
+
+}
+
+.mobile-menu ul:nth-child(1) {
+    border-bottom: 1px solid var(--very-light-ocre);
+    padding-bottom: 24px;
+
+}
+
+.mobile-menu ul:nth-child(2) {
+    margin-top: 0;
+
+}
+
+.email {
+    font-size: var(--sm);
+    font-weight: lighter;
+
+}
+
+.signout {
+    font-size: var(--sm);
+    font-weight: bold;
+}
+
+.signout a {
+    color: var(--hospital-blue);
+
+}
+
+/*SHOPING CAR COMPONENT*/
+ /*shopping-card*/
+ .shopping-card{
+    top: 40px;
+    right: 0;
+    position: absolute;
+    width: 360px;
+    margin: 20px;
+    box-sizing: border-box;
+/*Nav*/
+}
+.nav{
+    font-size: var(--md);
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+}
+.nav__flecha{
+    height: 24px;
+    width: 24px;
+    margin-right: 16px;
+    cursor:pointer;
+    padding: 2px;
     
+    border-radius:50%;
+    
+}
+.nav__flecha:hover{
+    height: 24px;
+    width: 24px;
+    margin-right: 16px;
+    cursor:pointer;
+    padding: 2px;
+    background-color: var(--hospital-blue);
+    
+    border-radius:50%;
+    
+}
 
+/*product-list*/
+.product-list{
+    margin-bottom: 20px;
 
+}
+/*product-card*/
+.product-card{
+    height: 70px;
+    display: grid;
+    grid-template-columns: auto 1fr auto auto ;
+    align-items: center;
+    gap: 14px;
+    font-size:var(--sm);
+    margin-bottom: 16px;
+    justify-items: center;
+}
+.product-card__image{
+    margin:0;
+    width: 70px;
+}
+.product-card__image img{
+    width: 70px;
+    border-radius: 20px;
+}
+.product-card__icon{
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
 
+.product-card :nth-child(3){
+    font-weight: bold;
+    font-size: var(--md);
+}
+/*total-card*/
+.total-card{
+    height: 70px;
+    display: grid;
+    grid-template-columns: auto auto ;
+    align-items: center;
+    gap: 14px;
+    font-size:var(--sm);
+    margin-bottom: 16px;
+    margin-top: 48px;
+    justify-content: space-between;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: var(--very-light-ocre);
+    border-radius: 16px;
+}
+.total-card p{
+    margin:0;
+}
+.total-card :nth-child(1){
+    font-size: var(--sm);
+    font-weight: bold;
+}
+.total-card :nth-child(2){
+    font-size: var(--md);
+    font-weight: bold;
+}
+
+/*primarybuttom*/
+.primary-button{
+    font-family: var(--font);
+    border-style: none;
+    font-weight: bold;
+    color: var(--white);
+    font-size: var(--md);
+    width: 100%;
+    background-color: var(--hospital-blue);
+    height: 60px;
+    border-radius: 16px;
+    cursor: pointer;
+}
 
 
 /*MEDIAQUERIES*/
@@ -199,5 +373,24 @@ nav {
     /*Desaparecemos el email*/
     .navbar-email {
         display: none;
+        
+    }
+    /*para qeu sea visible en vista para desktop*/
+    .desktop-menu{
+        display: none;
+    }
+    .shopping-card{
+        width: 100%;
+        position: static;
+        
+        
+    }
+}
+
+@media(min-width:640px) {
+    /*para que mobile menu solo sea visible en vista para celulares*/
+    .mobile-menu{
+        display: none;
+
     }
 }
