@@ -12,7 +12,7 @@ const menuShopingCard = document.querySelector('.shopping-card');
 const iconCard = document.querySelector('.navbar-shoping-cart');
 
 /*Seleccionamos elemento para agregar nuestro componente de js/html*/
-const cardsContainer=document.querySelector('.cards-container')
+const cardsContainer = document.querySelector('.cards-container')
 
 
 
@@ -107,57 +107,59 @@ productList.push({
 
 */
 
-/*Crearemos un producto por cada producto dentro de array productList*/
-for (product of productList) {
-    /*Repicamos la estructura del componente html en js*/
 
-    /*Creamos elemento div*/
-    const productCard = document.createElement('div');
-    /*añadimos la clase al elemento*/
-    productCard.classList.add('main-product-card');
+function renderProducts(arr) {
+    /*Crearemos un producto por cada producto dentro de array productList*/
+    for (product of arr) {
+        /*Repicamos la estructura del componente html en js*/
 
-    //product={name, price, image}-->product.image
+        /*Creamos elemento div*/
+        const productCard = document.createElement('div');
+        /*añadimos la clase al elemento*/
+        productCard.classList.add('main-product-card');
 
-    /*creamos etiqueta img; agremos atributo src con 
-    la propiedad que esta dentro de product.name*/
-    const productImg=document.createElement('img');
-    productImg.setAttribute('src',product.image);
+        //product={name, price, image}-->product.image
 
-    /*Creamos contenedor main-produc-card_description*/
-    const productDescription=document.createElement('div');
-    productDescription.classList.add('main-product-card__description');
+        /*creamos etiqueta img; agremos atributo src con 
+        la propiedad que esta dentro de product.name*/
+        const productImg = document.createElement('img');
+        productImg.setAttribute('src', product.image);
 
-    productCard.appendChild(productImg);
-    productCard.appendChild(productDescription);
+        /*Creamos contenedor main-produc-card_description*/
+        const productDescription = document.createElement('div');
+        productDescription.classList.add('main-product-card__description');
 
-
-    const div1 = document.createElement('div');
-    const productPrice=document.createElement('p');
-    const productName=document.createElement('p');
-    productPrice.innerText=product.price;
-    productName.innerText=product.name;
-
-    //metemos el figure y div1 dentro del productDescription
-    
-    productDescription.appendChild( div1);
-    div1.appendChild(productPrice);
-    div1.appendChild(productName);
-
-    const figure = document.createElement('figure');
-    const imgIcon=document.createElement('img');
-    imgIcon.setAttribute("src","./icons/add-to-car2.png");
-    //metemos imgIcon(<img>), dentro de figure(<figure>)
-    figure.appendChild(imgIcon);
-    productDescription.appendChild(figure);
-    //metemos el componente dentro del elemento html antes seleccionado 
-    cardsContainer.appendChild(productCard);
-    
-    //Organizamos los elementos en la herarquia correcta segun html
-    
-    
+        productCard.appendChild(productImg);
+        productCard.appendChild(productDescription);
 
 
-}
+        const div1 = document.createElement('div');
+        const productPrice = document.createElement('p');
+        const productName = document.createElement('p');
+        productPrice.innerText = product.price;
+        productName.innerText = product.name;
+
+        //metemos el figure y div1 dentro del productDescription
+
+        productDescription.appendChild(div1);
+        div1.appendChild(productPrice);
+        div1.appendChild(productName);
+
+        const figure = document.createElement('figure');
+        const imgIcon = document.createElement('img');
+        imgIcon.setAttribute("src", "./icons/add-to-car2.png");
+        //metemos imgIcon(<img>), dentro de figure(<figure>)
+        figure.appendChild(imgIcon);
+        productDescription.appendChild(figure);
+        //metemos el componente dentro del elemento html antes seleccionado 
+        cardsContainer.appendChild(productCard);
+
+        //Organizamos los elementos en la herarquia correcta segun html
+    }
+};
+
+renderProducts(productList);
+
 
 console.log('ome gonorrea');
 
