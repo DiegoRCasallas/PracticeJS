@@ -16,9 +16,10 @@
 
 }
 
-*{
+* {
     box-sizing: border-box;
 }
+
 body {
     margin: 0;
     font-family: var(--font);
@@ -146,7 +147,7 @@ nav {
     border: 1px solid var(--very-light-ocre);
     border-radius: 6px;
     padding: 20px 20px 0 20px;
-
+    background-color: var(--white);
 
 
 }
@@ -242,87 +243,98 @@ nav {
 }
 
 /*SHOPING CAR COMPONENT*/
- /*shopping-card*/
- .shopping-card{
+/*shopping-card*/
+.shopping-card {
     top: 40px;
     right: 0;
     position: absolute;
     width: 360px;
     margin: 20px;
+    padding: 16px;
+    box-shadow: 10px 10px 42px -3px var(--very-light-ocre);
     box-sizing: border-box;
-/*Nav*/
+    background-color: var(--white);
+    /*Nav*/
 }
-.nav{
+
+.nav {
     font-size: var(--md);
     display: flex;
     width: 100%;
     align-items: center;
 
 }
-.nav__flecha{
+
+.nav__flecha {
     height: 24px;
     width: 24px;
     margin-right: 16px;
-    cursor:pointer;
+    cursor: pointer;
     padding: 2px;
-    
-    border-radius:50%;
-    
+
+    border-radius: 50%;
+
 }
-.nav__flecha:hover{
+
+.nav__flecha:hover {
     height: 24px;
     width: 24px;
     margin-right: 16px;
-    cursor:pointer;
+    cursor: pointer;
     padding: 2px;
     background-color: var(--hospital-blue);
-    
-    border-radius:50%;
-    
+
+    border-radius: 50%;
+
 }
 
 /*product-list*/
-.product-list{
+.product-list {
     margin-bottom: 20px;
 
 }
+
 /*product-card*/
-.product-card{
+.product-card {
     height: 70px;
     display: grid;
-    grid-template-columns: auto 1fr auto auto ;
+    grid-template-columns: auto 1fr auto auto;
     align-items: center;
     gap: 14px;
-    font-size:var(--sm);
+    font-size: var(--sm);
     margin-bottom: 16px;
     justify-items: center;
 }
-.product-card__image{
-    margin:0;
+
+.product-card__image {
+    margin: 0;
     width: 70px;
 }
-.product-card__image img{
+
+.product-card__image img {
     width: 70px;
     border-radius: 20px;
 }
-.product-card__icon{
+
+.product-card__icon {
     width: 15px;
     height: 15px;
     cursor: pointer;
 }
 
-.product-card :nth-child(3){
+.product-card :nth-child(3) {
     font-weight: bold;
     font-size: var(--md);
 }
+
 /*total-card*/
-.total-card{
+.total-card {
     height: 70px;
     display: grid;
-    grid-template-columns: auto auto ;
+    grid-template-columns: auto auto;
     align-items: center;
     gap: 14px;
-    font-size:var(--sm);
+    font-size: var(--sm);
     margin-bottom: 16px;
     margin-top: 48px;
     justify-content: space-between;
@@ -331,20 +343,23 @@ nav {
     background-color: var(--very-light-ocre);
     border-radius: 16px;
 }
-.total-card p{
-    margin:0;
+
+.total-card p {
+    margin: 0;
 }
-.total-card :nth-child(1){
+
+.total-card :nth-child(1) {
     font-size: var(--sm);
     font-weight: bold;
 }
-.total-card :nth-child(2){
+
+.total-card :nth-child(2) {
     font-size: var(--md);
     font-weight: bold;
 }
 
 /*primarybuttom*/
-.primary-button{
+.primary-button {
     font-family: var(--font);
     border-style: none;
     font-weight: bold;
@@ -356,6 +371,94 @@ nav {
     border-radius: 16px;
     cursor: pointer;
 }
+
+
+
+/*MAIN CONTAINER COMPONENT*/
+
+.main-container .cards-container {
+            display: grid;
+            margin-top: 20px;
+            /*auto- fill: me pemite no definir un numero de columnsa sino
+             que se va ajustar la cantidad al ancho de la pantalla*/
+            grid-template-columns: repeat(auto-fill, 240px);
+            /*permite una separacion entre hijos dentro del grid container*/
+            gap: 26px;
+            /*alinea los contenedores hojos automaticamente en el centro*/
+            /*cuando ocurran cambios del tamaño de pantalla todo seguira en el centro*/
+            place-content: center;
+
+        }
+
+        .main-container .main-product-card {
+            width: 240px;
+
+        }
+
+        .main-container .main-product-card img {
+            width: 240px;
+            height: 240px;
+            border-radius: 20px;
+            object-fit: cover;
+
+        }
+
+        .main-container .main-product-card__description {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+        }
+
+        .main-container .main-product-card__description figure {
+            margin: 0;
+        }
+
+        .main-container .main-product-card__description figure img {
+            width: 35px;
+            height: 35px;
+        }
+
+        /*Ajustes del fuente del la main-product-card*/
+        .main-container .main-product-card__description div p:nth-child(1) {
+            font-weight: var(--md);
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 4px;
+        }
+
+        .main-container .main-product-card__description div p:nth-child(2) {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-weight: var(--md);
+            color: var(--very-light-ocre);
+        }
+
+
+
+        /*Reposive para pantallas de moviles
+        deberemos modificar el tamaño de la card en mobile 
+        para tener el  el diseño que se pide*/
+
+        @media(max-width:640px) {
+            .main-container .cards-container {
+                grid-template-columns: repeat(auto-fill, 140px);
+            }
+
+            .main-container .main-product-card {
+                width: 140px;
+
+            }
+
+            .main-container .main-product-card img {
+                width: 140px;
+                height: 140px;
+                border-radius: 20px;
+                object-fit: cover;
+            }
+        }
+
+
 
 
 /*MEDIAQUERIES*/
@@ -373,23 +476,25 @@ nav {
     /*Desaparecemos el email*/
     .navbar-email {
         display: none;
-        
+
     }
     /*para qeu sea visible en vista para desktop*/
-    .desktop-menu{
+    .desktop-menu {
         display: none;
     }
-    .shopping-card{
+
+    .shopping-card {
         width: 100%;
         position: static;
-        
-        
+
+
     }
 }
 
 @media(min-width:640px) {
+
     /*para que mobile menu solo sea visible en vista para celulares*/
-    .mobile-menu{
+    .mobile-menu {
         display: none;
 
     }
