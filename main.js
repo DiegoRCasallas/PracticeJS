@@ -12,8 +12,9 @@ const menuShopingCard = document.querySelector('.shopping-card');
 const iconCard = document.querySelector('.navbar-shoping-cart');
 
 /*Seleccionamos elemento para agregar nuestro componente de js/html*/
-const cardsContainer = document.querySelector('.cards-container')
-
+const cardsContainer = document.querySelector('.cards-container');
+const productDetailComponent = document.querySelector('.product-detail');
+const buttonCloseProductDetail = document.querySelector('.product-detail-close');
 
 
 
@@ -24,6 +25,8 @@ menuBurgerIcon.addEventListener('click', toggleMobileMenu);
 /**/
 iconCard.addEventListener('click', toggleShopingCardMenu);
 
+buttonCloseProductDetail.addEventListener('click', closeProductDetail);
+
 
 
 
@@ -33,9 +36,11 @@ iconCard.addEventListener('click', toggleShopingCardMenu);
  * When the user clicks on the hamburger menu, toggle the inactive class on the desktop menu.
  */
 function toggleDesktopMenu() {
+    const isCloseProductDetailComponent= productDetailComponent.classList.contains('inactive');
     const isCloseShopingCardMenu = menuShopingCard.classList.contains("inactive");
-    if (!isCloseShopingCardMenu) {
+    if (!isCloseShopingCardMenu || !isCloseProductDetailComponent) {
         menuShopingCard.classList.add("inactive");
+        productDetailComponent.classList.add('inactive')
     }
     desktopMenu.classList.toggle('inactive');
 }
@@ -44,16 +49,21 @@ function toggleDesktopMenu() {
  * menu and then toggle the mobile menu.
  */
 function toggleMobileMenu() {
+    const isCloseProductDetailComponent= productDetailComponent.classList.contains('inactive');
     const isCloseShopingCardMenu = menuShopingCard.classList.contains('inactive');
     if (isCloseShopingCardMenu == false) {
         menuShopingCard.classList.add("inactive");
     }
-    mobileMenu.classList.toggle("inactive");
+    if(isCloseProductDetailComponent==false){
+        productDetailComponent.classList.add("inactive");
+    }
+    mobileMenu.classList.toggle('inactive');
 
 }
 function toggleShopingCardMenu() {
     const isCloseMobileMenu = mobileMenu.classList.contains('inactive');
     const isCloseDesktopMenu = desktopMenu.classList.contains('inactive');
+    const isCloseProductDetailComponent=productDetailComponent.classList.contains('inactive');
 
     if (!isCloseMobileMenu) {
         mobileMenu.classList.add("inactive");
@@ -61,8 +71,34 @@ function toggleShopingCardMenu() {
     if (!isCloseDesktopMenu) {
         desktopMenu.classList.add("inactive");
     }
+    if(!isCloseProductDetailComponent){
+        productDetailComponent.classList.add('inactive');
+    }
     menuShopingCard.classList.toggle("inactive");
 }
+
+function openProductDetail() {
+    const isCloseShopingCardMenu = menuShopingCard.classList.contains('inactive');
+    const isCloseDesktopMenu = desktopMenu.classList.contains('inactive');
+    const isCloseMobileMenu=mobileMenu.classList.contains('inactive');
+    if(!isCloseDesktopMenu){
+        desktopMenu.classList.add('inactive');
+    }
+    productDetailComponent.classList.remove('inactive');
+    if (!isCloseShopingCardMenu){
+        menuShopingCard.classList.add('inactive');
+
+    }
+    if(!isCloseMobileMenu){
+        mobileMenu.classList.add('inactive');
+    }
+    productDetailComponent.classList.remove('inactive');
+}
+
+function closeProductDetail() {
+    productDetailComponent.classList.add('inactive');
+}
+
 
 /*Simulacion agregar producto mediante javascript*/
 /* Creamos lista de productos*/
@@ -70,23 +106,42 @@ const productList = [];
 
 /*Agregamos productos como objectos literales JS */
 productList.push({
-    name: 'Bike',
-    price: '120',
+    name: 'Pinarello Blue',
+    price: '200',
     /*imagen del producto que se desea */
-    image: 'https://bicicletasstrongman.co/wp-content/uploads/2022/06/willier-cento-10-ultegra.jpg',
+    image: 'https://i0.wp.com/bicicletasstrongman.co/wp-content/uploads/2021/12/pinarello_prince_strongman-09.jpg?w=1275&ssl=1',
 });
 productList.push({
-    name: 'Automobil',
+    name: 'Pinarello White',
     price: '520',
     /*imagen del producto que se desea */
-    image: 'https://bicicletasstrongman.co/wp-content/uploads/2022/06/willier-cento-10-ultegra.jpg',
+    image: 'https://i0.wp.com/bicicletasstrongman.co/wp-content/uploads/2022/05/pinarello-gan-ultegra.jpg?fit=1000%2C1000&ssl=1',
 });
 productList.push({
-    name: 'Moto',
+    name: 'Willier MTB',
     price: '320',
     /*imagen del producto que se desea */
-    image: 'https://bicicletasstrongman.co/wp-content/uploads/2022/06/willier-cento-10-ultegra.jpg',
+    image: 'https://i0.wp.com/bicicletasstrongman.co/wp-content/uploads/2022/05/WILLIERMTBNEGRA.jpg?resize=480%2C480&ssl=1',
 });
+productList.push({
+    name: 'Pinarello Blue',
+    price: '200',
+    /*imagen del producto que se desea */
+    image: 'https://i0.wp.com/bicicletasstrongman.co/wp-content/uploads/2021/12/pinarello_prince_strongman-09.jpg?w=1275&ssl=1',
+});
+productList.push({
+    name: 'Pinarello White',
+    price: '520',
+    /*imagen del producto que se desea */
+    image: 'https://i0.wp.com/bicicletasstrongman.co/wp-content/uploads/2022/05/pinarello-gan-ultegra.jpg?fit=1000%2C1000&ssl=1',
+});
+productList.push({
+    name: 'Willier MTB',
+    price: '320',
+    /*imagen del producto que se desea */
+    image: 'https://i0.wp.com/bicicletasstrongman.co/wp-content/uploads/2022/05/WILLIERMTBNEGRA.jpg?resize=480%2C480&ssl=1',
+});
+
 
 
 /*
@@ -124,6 +179,8 @@ function renderProducts(arr) {
         la propiedad que esta dentro de product.name*/
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+
+        productImg.addEventListener('click', openProductDetail)
 
         /*Creamos contenedor main-produc-card_description*/
         const productDescription = document.createElement('div');

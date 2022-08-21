@@ -252,7 +252,6 @@ nav {
     width: 360px;
     margin: 20px;
     padding: 16px;
-    box-shadow: 10px 10px 42px -3px var(--very-light-ocre);
     box-sizing: border-box;
     background-color: var(--white);
     /*Nav*/
@@ -462,13 +461,14 @@ nav {
 
 /*PRODUCT DETAIL COMPONENT*/
 .product-detail {
-    display: none;
+    
     position: absolute;
     right: 0;
     /*Ancho del contenedor principal*/
     width: 360px;
-    border:1px solid var(--very-light-ocre);
-    box-shadow: -8px 2px 29px -13px rgba(0,0,0,1);
+    background-color: var(--white);
+    border:2px solid var(--very-light-ocre);
+    
 }
 
 .primary-button {
@@ -604,8 +604,9 @@ nav {
     }
 
     .shopping-card {
+        top:61px;
         width: 100%;
-        position: static;
+        margin:0 auto;
 
 
     }
@@ -619,6 +620,5 @@ nav {
     /*para que mobile menu solo sea visible en vista para celulares*/
     .mobile-menu {
         display: none;
-
     }
 }
